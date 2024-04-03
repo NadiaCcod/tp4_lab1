@@ -4,6 +4,8 @@
  */
 package com.mycompany.tp4_lab1;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -78,6 +80,16 @@ public class tp4 extends javax.swing.JFrame {
 
     private void jBConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConvertirActionPerformed
      double resultado;
+     
+     Pattern patron = Pattern.compile("\\d+.\\d+");
+        Matcher match = patron.matcher(jTgrados.getText());
+        
+        if(match.matches()){
+            System.out.println("es un numero");
+        }else{
+            System.out.println("no es un numero");
+        }
+     
        //  Fahrenheit = Celsius * 9/5 + 32.
       resultado = Double.parseDouble(jTgrados.getText())*9/5+32;
        
