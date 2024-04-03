@@ -79,30 +79,29 @@ public class tp4 extends javax.swing.JFrame {
     }//GEN-LAST:event_jTgradosActionPerformed
 
     private void jBConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConvertirActionPerformed
-     double resultado;
-     
-     Pattern patron = Pattern.compile("\\d+.\\d+");
+        double resultado;
+
+        Pattern patron = Pattern.compile("^[0-9]+(\\.[0-9]+)?$");
         Matcher match = patron.matcher(jTgrados.getText());
         
-        if(match.matches()){
-            System.out.println("es un numero");
-        }else{
-            System.out.println("no es un numero");
+        
+
+        if (match.matches()) {
+            System.out.println("válido");
+            resultado = Double.parseDouble(jTgrados.getText()) * 9 / 5 + 32;
+
+            JOptionPane.showMessageDialog(this, "Grados Fahrenheit: " + resultado);
+            
+        } else {
+            JOptionPane.showMessageDialog(this, "Error, ingrese un número válido");
+           
         }
-     
-       //  Fahrenheit = Celsius * 9/5 + 32.
-      resultado = Double.parseDouble(jTgrados.getText())*9/5+32;
-       
-       
-      JOptionPane.showMessageDialog(this, "Grados Fahrenheit: "+resultado);
+
         
-        
-        
+
+
     }//GEN-LAST:event_jBConvertirActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
